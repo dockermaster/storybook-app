@@ -4,6 +4,7 @@
 #
 version: 2.1
 orbs:
+  puppeteer: threetreeslight/puppeteer@0.1.2
   percy: percy/agent@0.1.2
 jobs: 
   build:
