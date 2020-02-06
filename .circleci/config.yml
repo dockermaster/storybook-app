@@ -33,6 +33,7 @@ jobs:
     steps:
      - attach_workspace:
          at: .
+     - run: yarn start    
      - run: npx percy exec -- node tests/percy/homepage.js 
 
 workflows:
