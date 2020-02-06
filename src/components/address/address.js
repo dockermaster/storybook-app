@@ -1,5 +1,6 @@
 import React from 'react';
 import '../../styles/address.css'
+import '../../styles/user.css'
 
 class Address extends React.Component {
     state = {
@@ -18,7 +19,7 @@ class Address extends React.Component {
                     <input type="text" id="addressLine1" placeholder='Address Line 1' value = {this.state.addressLine1} 
                     onChange = {e => this.setState({addressLine1: e.target.value})}/>
 
-                    <label for="addressLine2 ">Address Line 2</label>
+                    <label className = "userdetails" for="addressLine2 ">Address Line 2</label>
                     <input type="text"  id="addressLine2"  placeholder='Address Line 2' value = {this.state.addressLine2} 
                     onChange = {e => this.setState({addressLine2: e.target.value})}/>
 
