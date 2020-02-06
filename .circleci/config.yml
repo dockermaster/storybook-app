@@ -64,8 +64,9 @@ jobs:
       # - image: circleci/mongo:3.4.4
 
     steps:
-      - persist_to_workspace
-      - run: npx percy exec -- node tests/percy/homepage.js 
+     - attach_workspace:
+         at: .
+     - run: npx percy exec -- node tests/percy/homepage.js 
 
 workflows:
  test:
