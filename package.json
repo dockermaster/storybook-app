@@ -36,6 +36,7 @@
     ]
   },
   "devDependencies": {
+    "@percy/script": "^1.0.3",
     "@storybook/addon-actions": "^5.3.11",
     "@storybook/addon-links": "^5.3.11",
     "@storybook/addons": "^5.3.11",
