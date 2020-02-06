@@ -1,6 +1,7 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import App from './App';
+import User from './components/connectedComponents/user/user';
 import  allReducers from './reducers';
 import { createStore, combineReducers } from 'redux';
 import { Provider, connect } from 'react-redux';
@@ -14,3 +15,16 @@ test('renders whole app', () => {
   const linkElement = getByText(/Visual Regression Testing is pretty awesome!/i);
   expect(linkElement).toBeInTheDocument();
 });
+
+test("renders username component",   () => {
+
+  const { getByText } = render(<Provider store={store} >
+           <User />
+         </Provider>
+    );
+    const username = getByText(/Username/i);
+    expect(username).toBeInTheDocument();
+ 
+});
+
+
