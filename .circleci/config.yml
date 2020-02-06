@@ -50,6 +50,7 @@ jobs:
 
       # run tests!
       - run: yarn test
+      - persist_to_workspace
   run_tests:
     docker:
       # specify the version you desire here
@@ -63,9 +64,8 @@ jobs:
       # - image: circleci/mongo:3.4.4
 
     steps:
-     - attach_workspace:
-         at: .
-     - run: npx percy exec -- node tests/percy/homepage.js 
+      - persist_to_workspace
+      - run: npx percy exec -- node tests/percy/homepage.js 
 
 workflows:
  test:
