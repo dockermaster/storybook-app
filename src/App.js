@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './styles/App.css';
 import Button from './components/button/button';
+import Address from './components/address/address';
 import User from './components/connectedComponents/user/user';
 
 class App extends Component {
@@ -17,6 +18,7 @@ class App extends Component {
         </p>
         <Button label ="I am button component rendered for demo"/>
         <User />
+        <Address />
       </div>
     );
   }

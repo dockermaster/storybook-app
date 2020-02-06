@@ -6,7 +6,7 @@ import { createStore, combineReducers } from 'redux';
 import { Provider, connect } from 'react-redux';
 const store = createStore(allReducers);
 
-test('renders learn react link', () => {
+test('renders whole app', () => {
   const { getByText } = render(<Provider store={store} >
     <App />
   </Provider>
