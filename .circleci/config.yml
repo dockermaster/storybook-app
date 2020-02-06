@@ -1,6 +1,6 @@
 version: 2.1
 jobs: 
-  build:
+  run_tests:
     docker:
       - image: circleci/node:10-browsers
 
@@ -18,31 +18,14 @@ jobs:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
-          
-      - persist_to_workspace:
-          root: .
-          paths:
-            - .
-  
-  run_tests:
-    docker:
-      - image: circleci/node:10-browsers
-        environment:
-          NODE_ENV: development
 
-    steps:
-     - attach_workspace:
-         at: .
-     - run: 
+      - run:
           command: yarn start
-          background: true    
-          
-     - run: npx percy exec -- node tests/percy/homepage.js 
+          background: true
+      
+      - run: npx percy exec -- node tests/percy/homepage.js 
 
 workflows:
  test:
    jobs:
-     - build
-     - run_tests:
-         requires:
-           - build
+     - run_tests
