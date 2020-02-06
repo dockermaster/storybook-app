@@ -24,7 +24,7 @@ jobs:
   build:
     docker:
       # specify the version you desire here
-      - image: circleci/node:10
+      - image: circleci/node:10-browsers
 
       # Specify service \\ here if necessary
       # CircleCI maintains a library of pre-built images
@@ -55,7 +55,7 @@ jobs:
   run_tests:
     docker:
       # specify the version you desire here
-      - image: circleci/node:10
+      - image: circleci/node:10-browsers
         environment:
           NODE_ENV: development
 
