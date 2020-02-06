@@ -46,7 +46,6 @@ jobs:
       # - image: circleci/mongo:3.4.4
 
     working_directory: ~/repo
-    parallelism: 3
     steps:
      - attach_workspace:
          at: .
@@ -56,6 +55,3 @@ workflows:
  test:
    jobs:
      - run_tests
-     - percy/finalize_all:
-         requires:
-           - run_tests
