@@ -46,9 +46,32 @@ jobs:
           background: true
       
       - run: npx percy exec -- node tests/percy/homepage.js 
+      
+
+  run_chromatic_tests:
+    docker:
+        - image: circleci/node:10-browsers
+
+    steps:
+        - checkout
+
+        - restore_cache:
+            keys:
+              - v1-dependencies-{{ checksum "package.json" }}
+              - v1-dependencies-
+
+        - run: yarn install
+
+        - save_cache:
+            paths:
+              - node_modules
+            key: v1-dependencies-{{ checksum "package.json" }}
+        
+        - run: npm run chromatic --exit-zero-on-changes
 
 workflows:
  test:
    jobs:
      - run_unit_tests
      - run_tests
+     - run_chromatic_tests
