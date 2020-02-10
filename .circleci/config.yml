@@ -67,8 +67,8 @@ jobs:
               - node_modules
             key: v1-dependencies-{{ checksum "package.json" }}
         
-        - run: npm run chromatic
-        
+        - run: npm run chromatic --exit-zero-on-changes
+
 workflows:
  test:
    jobs:
