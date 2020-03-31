@@ -74,4 +74,3 @@ workflows:
    jobs:
      - run_unit_tests
      - run_tests
-     - run_chromatic_tests
