@@ -4,19 +4,44 @@ import './styles/App.css';
 import Button from './components/button/button';
 import Address from './components/address/address';
 import User from './components/connectedComponents/user/user';
+import { statement } from '@babel/template';
 
 class App extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {hideNav:{}};
+  }
+  
+  componentDidMount() {
+    window.addEventListener("resize", this.resize.bind(this));
+    console.log('what is window siz : ', window.innerWidth);
+    this.resize();
+   }
+    
+   resize() {
+      let currentHideNav = (window.innerWidth <= 760);
+      if (currentHideNav !== this.state.hideNav) {
+          this.setState({hideNav: currentHideNav});
+      }
+      console.log("currentHideNav", currentHideNav);
+   }
+
   render() {
+    let header;
+    if (!this.state.hideNav) {
+      header = <h1 className="App_title">Test application in React</h1>
+    }
+
     return (
       <div className="App">
         <header className="App-header">
-          
-          <h1 className="App_title">Test application in React</h1>
+          {header}
         </header>
         <p className="App_intro">
         Visual Regression Testing is pretty awesome!
         </p>
-        <Button label ="I am button component rendered for demo"/>
+        <Button label ="I am button component rendered for demo" />
         <User />
         <Address />
       </div>
