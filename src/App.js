@@ -15,7 +15,6 @@ class App extends Component {
   
   componentDidMount() {
     window.addEventListener("resize", this.resize.bind(this));
-    console.log('what is window siz : ', window.innerWidth);
     this.resize();
    }
     
@@ -24,7 +23,6 @@ class App extends Component {
       if (currentHideNav !== this.state.hideNav) {
           this.setState({hideNav: currentHideNav});
       }
-      console.log("currentHideNav", currentHideNav);
    }
 
   render() {
