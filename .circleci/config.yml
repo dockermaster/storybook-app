@@ -89,6 +89,10 @@ jobs:
 
         - run: "export APPLITOOLS_BATCH_ID=`echo $CIRCLE_SHA1`"
 
+        - run:
+            command: yarn start
+            background: true
+
         - run: node tests/applitools/visualgrid-storybook-async.js
 
 
