@@ -69,8 +69,30 @@ jobs:
         
         - run: npm run chromatic --exit-zero-on-changes
 
+  run_applitools_tests:
+    docker:
+        - image: circleci/node:10-browsers
+    steps:
+        - checkout
+
+        - restore_cache:
+            keys:
+              - v1-dependencies-{{ checksum "package.json" }}
+              - v1-dependencies-
+
+        - run: yarn install
+
+        - save_cache:
+            paths:
+              - node_modules
+            key: v1-dependencies-{{ checksum "package.json" }}
+
+        - run: "export APPLITOOLS_BATCH_ID=`echo $CIRCLE_SHA1`"
+
+
 workflows:
  test:
    jobs:
      - run_unit_tests
      - run_tests
+     - run_applitools_tests
