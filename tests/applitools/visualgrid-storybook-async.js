@@ -85,7 +85,7 @@ const { Eyes, Target, VisualGridRunner, Configuration, BrowserType, DeviceName, 
     );
 
     // End the test.
-     const results = await eyes.close(); // will return only first TestResults, but as we have multiple browsers, we need more results
+    await eyes.close(); // will return only first TestResults, but as we have multiple browsers, we need more results
 
     // This will return all results as an array
     const results = await eyes.getRunner().getAllTestResults();
