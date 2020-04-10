@@ -99,7 +99,7 @@ jobs:
 
         - run: 
             environment:
-              APPLITOOLS_BATCH_ID: ${CIRCLE_SHA1}
+              APPLITOOLS_BATCH_ID: 'echo ${CIRCLE_SHA1}'
             command: node tests/applitools/visualgrid-storybook-async.js
 
 
