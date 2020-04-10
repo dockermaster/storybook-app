@@ -89,7 +89,10 @@ jobs:
         
         - run: 
             command: echo $APPLITOOLS_BATCH_ID
-                    
+                   
+        - run: 
+            command: "echo $CIRCLE_SHA1" >> $APPLITOOLS_BATCH_ID
+            
         - run: 
             command: echo $APPLITOOLS_BATCH_ID
         
