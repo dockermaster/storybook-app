@@ -85,7 +85,7 @@ jobs:
             key: v1-dependencies-{{ checksum "package.json" }}
 
         - run: 
-            command: export APPLITOOLS_BATCH_ID=${CIRCLE_SHA1}
+            command: export $APPLITOOLS_BATCH_ID='${CIRCLE_SHA1}'
         
         - run: 
             command: echo $APPLITOOLS_BATCH_ID
@@ -98,8 +98,6 @@ jobs:
             background: true
 
         - run: 
-            environment:
-              APPLITOOLS_BATCH_ID: $CIRCLE_SHA1
             command: node tests/applitools/visualgrid-storybook-async.js
 
 
