@@ -3,9 +3,6 @@
 // Import chromedriver
 require('chromedriver');
 
-process.env.APPLITOOLS_API_KEY='Cr99RfN9u9nmbwMEXQer3SV104Slf2JSB4s99k56DCKGq4U110'
-
-
 // Import Selenium Webdriver
 const { Builder, Capabilities, By } = require('selenium-webdriver');
 
