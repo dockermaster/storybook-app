@@ -88,16 +88,9 @@ jobs:
             command: export APPLITOOLS_BATCH_ID="echo $CIRCLE_SHA1"
         
         - run: 
-            command: echo $APPLITOOLS_BATCH_ID
-                   
-        - run: 
-            command: "echo $CIRCLE_SHA1" >> $APPLITOOLS_BATCH_ID
-            
-        - run: 
-            command: echo $APPLITOOLS_BATCH_ID
-        
-        - run: 
-            command: echo $APPLITOOLS_API_KEY
+            command: |
+                      echo $APPLITOOLS_BATCH_ID
+                      echo $CIRCLE_SHA1
 
         - run:
             command: yarn start
