@@ -44,10 +44,7 @@ jobs:
       - run:
           command: yarn start
           background: true
-      
-      - run: npx percy exec -- node tests/percy/homepage.js 
-      
-
+          
   run_chromatic_tests:
     docker:
         - image: circleci/node:10-browsers
