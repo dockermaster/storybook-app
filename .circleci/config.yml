@@ -97,7 +97,10 @@ jobs:
             command: yarn start
             background: true
 
-        - run: node tests/applitools/visualgrid-storybook-async.js
+        - run: 
+            environment:
+              APPLITOOLS_BATCH_ID: ${CIRCLE_SHA1}
+            command: node tests/applitools/visualgrid-storybook-async.js
 
 
 workflows:
