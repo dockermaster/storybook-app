@@ -85,7 +85,7 @@ jobs:
             key: v1-dependencies-{{ checksum "package.json" }}
 
         - run: 
-            command: echo "export APPLITOOLS_BATCH_ID=$CIRCLE_SHA1"
+            command: echo "export APPLITOOLS_BATCH_ID=$CIRCLE_SHA1" >> $BASH_ENV
         
         - run: 
             command: echo $APPLITOOLS_BATCH_ID
